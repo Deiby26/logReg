@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'registroUsuario.dart';
-
+import 'inicioSesion.dart';
 void main() {
   runApp(const MainApp());
 }
@@ -30,8 +30,7 @@ class _MainAppState extends State<MainApp> {
               ),
               const Text("PocketMetrics"),
               const Text("¡Bienvenido de nuevo! Es un placer poderte servir"),
-              ElevatedButton(
-                  onPressed: () {}, child: const Text("Iniciar Sesion")),
+              iniciarSesionPage(),
               const Text("¿Eres Nuevo? Unete e inicia una nueva forma"),
               const Text("de organizar tus metas financieras"),
               btnRegistroUsuario()
@@ -40,6 +39,26 @@ class _MainAppState extends State<MainApp> {
         ),
       ),
     );
+  }
+}
+
+class iniciarSesionPage extends StatelessWidget {
+  const iniciarSesionPage({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+        onPressed: () {
+          Navigator.push(context,
+    MaterialPageRoute(builder: (context) => (inicioSesion())));
+          
+          
+          
+    
+    
+        }, child: const Text("Iniciar Sesion"));
   }
 }
 
