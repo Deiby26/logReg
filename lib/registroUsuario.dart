@@ -85,11 +85,6 @@ class _RegistroUsuarioState extends State<RegistroUsuario> {
                     ),
                     ElevatedButton(
                       onPressed: () {
-                        // Aquí puedes agregar la lógica para registrar al usuario
-                        // print(_controladorNombre.text);
-                        // print(_controladorCorreo.text);
-                        // print(_controladorPassword.text);
-                        // print(_controladorPasswordConfirmed.text);
                         if (_controladorNombre.text.isNotEmpty &&
                             _controladorCorreo.text.isNotEmpty &&
                             _controladorPassword.text.isNotEmpty &&
