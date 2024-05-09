@@ -10,6 +10,10 @@ class RegistroUsuario extends StatefulWidget {
 
 class _RegistroUsuarioState extends State<RegistroUsuario> {
   bool _isChecked = false;
+  final TextEditingController _controladorNombre = TextEditingController();
+  final TextEditingController _controladorCorreo = TextEditingController();
+  final TextEditingController _controladorPassword = TextEditingController();
+  final TextEditingController _controladorPasswordConfirmed = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -33,6 +37,7 @@ class _RegistroUsuarioState extends State<RegistroUsuario> {
                     SizedBox(
                       width: 300,
                       child: TextFormField(
+                        controller: _controladorNombre,
                         decoration:
                             InputDecoration(label: const Text("Usuario")),
                       ),
@@ -40,6 +45,7 @@ class _RegistroUsuarioState extends State<RegistroUsuario> {
                     SizedBox(
                       width: 300,
                       child: TextFormField(
+                        controller: _controladorCorreo,
                         decoration:
                             InputDecoration(label: const Text("Correo")),
                       ),
@@ -47,6 +53,7 @@ class _RegistroUsuarioState extends State<RegistroUsuario> {
                     SizedBox(
                       width: 300,
                       child: TextFormField(
+                        controller: _controladorPassword,
                         obscureText: true,
                         decoration:
                             InputDecoration(label: const Text("Contraseña")),
@@ -55,6 +62,7 @@ class _RegistroUsuarioState extends State<RegistroUsuario> {
                     SizedBox(
                       width: 300,
                       child: TextFormField(
+                        controller: _controladorPasswordConfirmed,
                         obscureText: true,
                         decoration: InputDecoration(
                             label: const Text("Verificar contraseña")),
@@ -77,6 +85,10 @@ class _RegistroUsuarioState extends State<RegistroUsuario> {
                     ElevatedButton(
                       onPressed: () {
                         // Aquí puedes agregar la lógica para registrar al usuario
+                        print(_controladorNombre.text);
+                        print(_controladorCorreo.text);
+                        print(_controladorPassword.text);
+                        print(_controladorPasswordConfirmed.text);
                       },
                       child: const Text("Registrarse"),
                     ),
