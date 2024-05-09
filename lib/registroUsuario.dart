@@ -13,7 +13,8 @@ class _RegistroUsuarioState extends State<RegistroUsuario> {
   final TextEditingController _controladorNombre = TextEditingController();
   final TextEditingController _controladorCorreo = TextEditingController();
   final TextEditingController _controladorPassword = TextEditingController();
-  final TextEditingController _controladorPasswordConfirmed = TextEditingController();
+  final TextEditingController _controladorPasswordConfirmed =
+      TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -85,10 +86,53 @@ class _RegistroUsuarioState extends State<RegistroUsuario> {
                     ElevatedButton(
                       onPressed: () {
                         // Aquí puedes agregar la lógica para registrar al usuario
-                        print(_controladorNombre.text);
-                        print(_controladorCorreo.text);
-                        print(_controladorPassword.text);
-                        print(_controladorPasswordConfirmed.text);
+                        // print(_controladorNombre.text);
+                        // print(_controladorCorreo.text);
+                        // print(_controladorPassword.text);
+                        // print(_controladorPasswordConfirmed.text);
+                        if (_controladorNombre.text.isNotEmpty &&
+                            _controladorCorreo.text.isNotEmpty &&
+                            _controladorPassword.text.isNotEmpty &&
+                            _controladorPasswordConfirmed.text.isNotEmpty &&
+                            _isChecked == true) {
+                          print("pasa");
+                        } else {
+                          showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return AlertDialog(
+                                  content: const Text(
+                                      "TODOS LOS CAMPOS DEBEN SER REQUERIDOS POR EL USUARIO"),
+                                  actions: [
+                                    TextButton(
+                                        onPressed: () {
+                                          Navigator.of(context).pop();
+                                        },
+                                        child: const Text("cerrar"))
+                                  ],
+                                );
+                              });
+                        }
+
+                        if (_controladorPassword.text !=
+                            _controladorPasswordConfirmed.text) {
+                          showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return AlertDialog(
+                                  title: Text("Error"),
+                                  content: const Text(
+                                      "LAS CONTRASEÑAS NO COINCIDEN"),
+                                  actions: [
+                                    TextButton(
+                                        onPressed: () {
+                                          Navigator.of(context).pop();
+                                        },
+                                        child: const Text("Cerrar"))
+                                  ],
+                                );
+                              });
+                        }
                       },
                       child: const Text("Registrarse"),
                     ),
